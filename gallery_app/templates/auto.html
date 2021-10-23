@@ -1,0 +1,30 @@
+{% extends 'index.html'%}
+{% block container %}
+
+    <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img src="/media/{{auto.picture}}" width="40" height="200" alt="" class="card-img-top">
+                <div class="card-body">
+                    <h4 class="card-title">Машина</h4>
+                    {% if auto.like and auto.comments %}
+                    <p>Вам нравится ❤️</p>
+                    <p> Ваш комментарий: {{ auto.comments }} </p>
+                    {% elif auto.comments %}
+                    <p> Ваш комментарий: {{ auto.comments }} </p>
+                    {% elif auto.like %}
+                    <p>Вам нравится ❤️</p>
+                    {%endif%}
+                    <form method="post" action="">
+                       {% csrf_token %}
+                      {{ form.as_table }}  <input type="submit" class="btn btn-primary mt-4 mb-2" value="Отправить">
+                     </form>
+
+
+
+                    <div class="d-flex justify-content-between align-items-center">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

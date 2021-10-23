@@ -1,0 +1,12 @@
+{% extends 'index.html'%}
+{% block container %}
+    {%for animal in animals%}
+    <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <a href="{% url 'animal' animal.id %}">
+                <img src="/media/{{animal.picture}}" width="40" height="200" alt="" class="card-img-top">
+                </a>
+            </div>
+        </div>
+    {%endfor%}
+{% endblock %}
